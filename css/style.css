@@ -1,0 +1,8 @@
+/* code css o day thi file unit-01.css se nhan dc cac doan code o day */
+
+/* Universal selector */
+*, *::after, *::before {
+  /* reset css - reset browser */
+  margin: 0;
+  padding: 0;
+}

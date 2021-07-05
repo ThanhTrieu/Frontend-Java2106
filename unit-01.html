@@ -63,6 +63,170 @@
     <!-- HTML truoc/sau -->
     <!-- nho may cai nay: sau con su dung cho selector css -->
 
+    <!-- HTML danh sach -->
+    <!-- thong thuong tao menu, sidebar, navbar tren giao dien web -->
+    <!-- danh sach khong co thu tu -->
+    <ul>
+      <li><a href="#"> Home</a></li>
+      <li><a href="#"> About</a></li>
+      <li><a href="#"> Contact</a></li>
+      <li><a href="#"> Product</a></li>
+    </ul>
+    <!-- danh sach co thu tu -->
+    <ol>
+      <li><a href="#"> Home</a></li>
+      <li><a href="#"> About</a></li>
+      <li><a href="#"> Contact</a></li>
+      <li><a href="#"> Product</a></li>
+    </ol>
+
+    <!-- HTML ve bang bieu du lieu -->
+    <table width="100%" border="1" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th>MaSV</th>
+          <th>Ho ten</th>
+          <th>Ngay sinh</th>
+          <th>Que quan</th>
+          <th>So dien thoai</th>
+          <th>Hoc bong</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01</td>
+          <td>Nguyen Van A</td>
+          <td>1998</td>
+          <td>Ha Noi</td>
+          <td>0232242322</td>
+          <td>2000</td>
+        </tr>
+        <tr>
+          <td>02</td>
+          <td>Nguyen Van B</td>
+          <td rowspan="2">2000</td>
+          <td>Ha Nam</td>
+          <td>0232242322</td>
+          <td>1000</td>
+        </tr>
+        <tr>
+          <td>03</td>
+          <td>Nguyen Van C</td>
+          <!-- <td>2000</td> -->
+          <td>Ha Noi</td>
+          <td>0232242322</td>
+          <td>2000</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5"> Tong tien hoc bong</td>
+          <td>5000</td>
+        </tr>
+      </tfoot>
+    </table>
+    <!-- thuc hanh table -->
+    <table width="100%" border="1" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th>Thoi gian</th>
+          <th colspan="3">Trận đấu</th>
+          <!-- <th></th>
+          <th></th> -->
+          <th>Trực tiếp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="5">Copa America 2021 - bán kết 1</td>
+        </tr>
+        <tr>
+          <td>06/07 06:00</td>
+          <td>Peru</td>
+          <td></td>
+          <td>Brazil</td>
+          <td>BĐTV, OnSports, HTVTT</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- HTML media / Multi media -->
+    <!-- png, jpg, jpeg, gif, svg... -->
+    <img src="images/logo.svg" width="300" height="300" alt="lgo vnexpress" title="logo vnexpress" />
+    <br/><br/>
+    <!-- HTML audio -->
+    <audio src="media/test.mp3" controls loop buffer></audio>
+    <br/><br/>
+    <!-- HTML video -->
+    <video src="media/test.mp4" controls loop buffer></video>
+    <!-- HTML youtube -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZBE7XIGxIPk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br/><br/>
+
+    <!-- HTML Form -->
+    <form action="sever/test.jsp" method="post" enctype="multipart/form-data">
+      <!-- gui du lieu tu form len server -->
+      <label> username</label>
+      <!-- cho nguoi dung nhap du lieu tren 1 dong -->
+      <input type="text" value="" placeholder="nhap username" required />
+      <br/><br/>
+      <label> password</label>
+      <input type="password" placeholder="nhap mat khau" minlength="3" maxlength="5" />
+      <br/>
+      <!-- chi nhap so -->
+      <label> Number</label>
+      <input type="number" placeholder="nhap so" />
+      <br/>
+      <!-- chi nhap email -->
+      <label> Email</label>
+      <!-- van gui data tu input di dc -->
+      <input type="email" placeholder="nhap email" readonly />
+      <br/>
+      <!-- chi nhap URL -->
+      <label> URL</label>
+      <!-- khong the gui data tu input di dc -->
+      <input type="url" placeholder="nhap URL" disabled />
+      <br/>
+
+      <label> Date/Month/Week</label>
+      <input type="month" placeholder="nhap date" />
+      <br/>
+
+      <label> Color</label>
+      <input type="color" placeholder="chon color" />
+      <br/>
+
+      <label> chon nam sinh</label>
+      <select>
+        <option value="1998"> 1998</option>
+        <option value="1998"> 1999</option>
+        <option value="1998"> 2000</option>
+        <option value="1998" selected="selected"> 2001</option>
+      </select>
+      <br/>
+      
+      <label> Nam</label>
+      <input type="radio" name="gender" checked="checked" />
+      <label> Nu</label>
+      <input type="radio" name="gender" />
+      <label> khong xac dinh</label>
+      <input type="radio" name="gender" />
+      <br/><br/>
+
+      <label> Ban co dong y voi cac dieu khoan cua chung toi ?</label>
+      <input type="checkbox" checked="checked" />
+      <br/<br/>
+      <label> ghi chu </label>
+      <!-- cho phep nhap du lieu tren nhieu dong -->
+      <textarea cols="50" rows="6"></textarea>
+      <br/>
+
+      <button type="button"> click me </button>
+      <br/>
+      <!-- nut lenh : gui du lieu tu form di -->
+      <button type="submit"> Submit Form </button>
+    </form>
+
     <script src="" async defer></script>
     <!-- <link rel="stylesheet" href="css/style.css"> -->
   </body>

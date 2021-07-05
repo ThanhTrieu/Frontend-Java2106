@@ -1,0 +1,33 @@
+/* nhung css  */
+@import 'style.css';
+
+/* selector : cach tim ra phan tu HTML */
+/* thuoc tinh + value: dinh dang lai phan HTML */
+
+/* h1.title : selector */
+/* color: yellow : danh danh phan tu */
+
+/* chia lam 2 module hoc css */
+/* module 1: tim hieu ve selector css */
+/* module 2: tim hieu ve thuoc tinh + gia tri cua css */
+
+/* id selector */
+/* #title {
+  color: blue;
+} */
+
+/* class selector */
+.title {
+  color: yellow;
+}
+
+/* HTML selector */
+/* selector ket hop */
+h1.title {
+  color: red;
+}
+
+/* do uu tien cua selector css */
+/* vi sao ???? */
+/* nguyen tac : selector con duong tim ra html - con duong do cang chi tiet day day ro rang - ngan gon cang dc uu tien */
+/* lien qua den pham vi tim kiem cua selector - pham vi cang nho cang dc uu tien */
