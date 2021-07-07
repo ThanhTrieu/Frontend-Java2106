@@ -1,6 +1,14 @@
 /* nhung css  */
 @import 'style.css';
 
+html {
+  font-size: 62.5%;
+  /* 1rem = 10px */
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 /* selector : cach tim ra phan tu HTML */
 /* thuoc tinh + value: dinh dang lai phan HTML */
 
@@ -31,3 +39,155 @@ h1.title {
 /* vi sao ???? */
 /* nguyen tac : selector con duong tim ra html - con duong do cang chi tiet day day ro rang - ngan gon cang dc uu tien */
 /* lien qua den pham vi tim kiem cua selector - pham vi cang nho cang dc uu tien */
+
+/* Attribute selector */
+input[type='text']{
+  border: 2px solid red;
+}
+/* ton tai 1 trong nhieu gia tri cua thuoc tinh */
+input[class~='user'] {
+  border: 1px solid blue;
+}
+
+/* ton tai ky tu trong gia tri cua thuoc tinh */
+input[class*='ss'] {
+  border: 1px solid yellow;
+}
+
+/* tim kiem ki tu ket thuc trong gia tri cua thuoc tinh */
+/* a[href$='vn'] {
+  color: red;
+} */
+/* tim kiem ki tu bat day trong gia cua thuoc tinh */
+/* a[href^='https'] {
+  color: yellow;
+} */
+/* | dung dang sau gia tri cua thuoc tinh phai la ki -, sau ki tu - khong can quan tam. Gia tri nay phai la gia tri bat dau cua thuoc tinh, tinh tu ben trai sang*/
+input[class|='form'] {
+  border: 1px dotted red;
+}
+/*  giua cac loai attribute selector khong co su uu tien  */
+
+/* thanh phan viet cuoi cung cua selector se bi tac dong, nhung thanh phan dung truoc chi la thanh phan bo */
+div.main_left ~ div.main_right {
+  width: 200px;
+  height: 200px;
+  border: 1px dotted red;
+}
+main  div.main_left  p {
+  color: red;
+}
+/* gom nhom selector - khi cung chung thuoc tinh va gia tri */
+p.title, p.title1, p.title2 {
+  color: red;
+}
+p.title {
+  font-size: 14px;
+}
+p.title2 {
+  font-size: 20px;
+}
+/* nhin vao selector phan cap - yeu cau dung lai cau truc HTML */
+
+section.content > div.navbar + div.sidebar > nav.menu ul.list li.list__item a {
+  color :red;
+}
+
+/* pesudo class selector */
+/* tim thang con dau tien */
+div.content :first-child {
+  color: pink;
+}
+/* tim thang con cuoi cung */
+div.content :last-child {
+  color: blue;
+}
+
+/* tim tat ca cac loai con dau tien - tinh tu tren xuong */
+div.content :first-of-type {
+  color: red;
+}
+/* tim tat ca nhung loai con cuoi cung - tinh tu tren xuong */
+div.content :last-of-type {
+  color: yellow;
+}
+
+/* tim thanh phan co vi tri n (n =3) tinh tu tren xuong */
+div.content :nth-child(3) {
+  color: orange;
+}
+
+/* tim tat cac thanh phan con khac nhau co vi tri n ( n= 3) - tinh tu tren xuong */
+div.content :nth-of-type(3) {
+  color: violet;
+}
+/* h2 -03 | p - 03 | h3 03 |  */
+
+/* tim thanh con tinh tu vi tri cua con cuoi cung di len */
+div.content :nth-last-child(2) {
+  color: grey;
+}
+
+/* xac dinh nhung thang con cuoi cung - roi dem nguoc len tim ra vi tri cua thanh phan can tim */
+div.content :nth-last-of-type(2) {
+  color: blueviolet;
+}
+/* h2-02 | p-02 | h3-02 */
+
+/* co thanh phan nao bi mau vang ko ???
+ */
+/*
+div.content:first-child {
+  color: yellow;
+  width: 300px;
+  height: 300px;
+  border-top: 1px solid red;
+}
+*/
+/* trong thanh phan chi chua 1 thang con */
+div.parent :only-child {
+  color: blue;
+}
+
+input[class|='check']:focus {
+  width: 30rem;
+  height: 30rem;
+  outline: none;
+}
+input[type="checkbox"]:checked {
+  width: 100px;
+  height:100px;
+}
+
+a.link:active {
+  color: red;
+}
+a.link:visited {
+  color: violet;
+}
+a.link:link {
+  color: yellow;
+}
+a.link:hover {
+  color: pink;
+}
+
+/* pesudo element */
+div.element p.content::first-letter {
+  color: red;
+  font-size: 50px;
+}
+/* first-line ko dc uu tien bang first-letter */
+div.element p::first-line {
+  color: blue;
+}
+/* them noi dung dang truoc phan tu */
+div.element p.content::before {
+  content: 'Hoc CSS';
+}
+div.element p.content::after {
+  content: url('../images/icon_24h.ico');
+}
+div.element p.content::selection {
+  color: violet;
+}
