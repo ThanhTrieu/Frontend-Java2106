@@ -1,0 +1,67 @@
+/* rest css */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+html {
+  font-size: 62.5%;
+  /* 1rem = 10px */
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* khai bao bien trong css */
+/* dung lai gia tri cho thuoc tinh nao do nhieu lan */
+/* yeu cau la cac trinh duyet phai ho tro */
+:root {
+  /* :root tuong duong nhu tag html */
+  /* cu phap: --tenBien: gia tri */
+  --bgColor: #fafad2;
+  --bgHover: #660033;
+  --textHover: #ccffff;
+}
+a{
+  text-decoration: none;
+}
+
+.nav {
+  width: 20rem;
+  /* su dung bien css da duoc dinh nghia */
+  background-color: var(--bgColor);
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+}
+.nav__item {
+  padding: 1.2rem 0.5rem;
+  border-bottom: 1px solid red;
+  position: relative;
+}
+.nav__item:last-child {
+  border: none;
+}
+.nav__link {
+  color: black;
+  font-size: 1.4rem;
+}
+.nav__item:hover {
+  background-color: var(--bgHover);
+  cursor: pointer;
+}
+.nav__item:hover > .nav__link {
+  color: var(--textHover);
+}
+/* css menu dropdown */
+.nav__dropdown {
+  display: none;
+  width: 20rem;
+  background-color: var(--bgColor);
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+.nav__item:hover > .nav__dropdown {
+  display: block;
+}
