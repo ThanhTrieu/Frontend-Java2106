@@ -1,0 +1,87 @@
+/* setup basic css */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  /* 1rem = 10px */
+}
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1;
+}
+a {
+  text-decoration: none;
+}
+button {
+  cursor: pointer;
+}
+input, textarea, button {
+  outline: none;
+  box-shadow: none;
+  font-family: 'Lato', sans-serif;
+}
+
+/* khai bao cac bien dung chung */
+:root {
+  --primary:#64c29e;
+  --heading: #353738;
+  --text: #848789;
+  --bgLight: #f7f7f7;
+  --bgWhite: #ffffff;
+  --bgDark: #282f35;
+  --inputBorder: #d3d7d9;
+  --inputText: #c8c8c8;
+}
+
+/* wrapper */
+.wrapper {
+  max-width: 160rem;
+  margin: 0 auto;
+}
+/* header */
+.header {
+  min-height: 80rem;
+  background-image: url('../images/xedap_logo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  /* tac dong the nav */
+  justify-content: center;
+  align-items: flex-start;
+}
+.nav {
+  margin-top: 3.5rem;
+}
+.nav__list {
+  display: flex;
+  align-items: center;
+}
+.nav__item {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  position: relative;
+}
+/* tao css . cho menu */
+.nav__item:first-child::after, .nav__item:nth-child(4)::after {
+  content : ".";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 2rem;
+  color: var(--heading);
+}
+/* the a */
+.nav__link {
+  position: relative;
+  display: block;
+  text-transform: uppercase;
+  color: var(--heading);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
