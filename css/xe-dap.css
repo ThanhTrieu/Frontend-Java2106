@@ -85,3 +85,161 @@ input, textarea, button {
   font-weight: 700;
   font-size: 1.3rem;
 }
+
+/* css feature */
+.feature__header {
+  background-color: var(--bgLight);
+  padding: 11.5rem 1.5rem 14rem;
+  text-align: center;
+}
+.feature__img--top {
+  margin: 0 auto 3.2rem;
+}
+.feature__heading {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: var(--heading);
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: 0.6rem;
+}
+.feature__header--desc {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0 auto;
+  max-width: 108rem;
+}
+.feature__item {
+  display: flex;
+  flex-flow: row wrap;
+  height: 60rem;
+  overflow: hidden;
+}
+/* cot ben trai */
+.feature__item--img {
+  width: 67%;
+  position: relative;
+}
+.feature__item--content {
+  width: 33%;
+}
+.feature__item--img .img__bg {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.feature__item--img .img__brand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  /* z-index : chi phoi thu tu xep chong len nhau */
+}
+
+/* cot ben phai */
+.feature__item--content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+.feature__item--content-top {
+  padding: 0 6.5rem;
+  position: relative;
+  background-color: var(--bgWhite);
+  height: 67%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.feature__item--text {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: var(--text);
+  text-align: justify;
+  position: relative;
+  padding-bottom: 3.8rem;
+}
+.feature__item--content-bottom {
+  height: 33%;
+}
+/* doi thu tu cua thanh phan trong li thu 2 */
+.feature__item:nth-child(2) .feature__item--img {
+  order: 2;
+}
+/* css li thu 3 */
+/* 2 cot nam 2 ben trai phai */
+.feature__item:last-child > .feature__item--img {
+  width: 33%;
+}
+/* cot nam giua */
+.feature__item:last-child > .feature__item--content {
+  width: 34%;
+}
+/* css dau gach ngang ben duoi the p */
+.feature__item--text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5.5rem;
+  height: 2px;
+  background-color: #d7d7d7;
+}
+/*  css arrow */
+.feature__item--content-top::after {
+  content: "";
+  position: absolute;
+  bottom:0;
+  left: 50%;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--bgWhite);
+  z-index:10;
+  transform: translate(-50%,50%) rotate(-45deg);
+}
+/* css Tweet */
+.tweet {
+  padding: 12.5rem 1.5rem 7rem;
+  background-color: var(--bgLight);
+  text-align: center;
+}
+.tweet__icon {
+  font-size: 3.6rem;
+  color: #56c7ee;
+  margin-bottom: 3.5rem;
+}
+.tweet__heading {
+  font-size: 1.8rem;
+  margin-bottom: 2.5rem;
+}
+.tweet__location, .tweet__author {
+  color: var(--heading);
+  font-weight: bold;
+}
+.tweet__time {
+  color: var(--text);
+  font-weight: 300;
+  padding-left: 1.5rem;
+  margin-left: 1.5rem;
+  position: relative;
+}
+.tweet__time::before {
+  content: "/";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.tweet__content {
+  font-size: 2.4rem;
+  line-height: 1.6;
+  color: var(--text);
+  font-style: italic;
+  margin: 0 auto 10rem;
+  max-width: 104.2rem;
+}
