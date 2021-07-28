@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning JS 03</title>
+</head>
+<body>
+    <h1>Learning JS 03</h1>
+    <!-- goi 1 ham (co ten clickMe) JS xu ly su kien click -->
+    <!-- chac chan o dau do toi phai dinh nghia va xu ly cai ham nay -->
+    <button onclick="clickMe();"> Click me </button>
+    <br/>
+    <input type="text" onblur="myBlur();" onfocus="myFocus();" />
+    <br/>
+
+    <!-- this: contro dang lam viec voi the HTML -->
+    <select onchange="chooseGender(this);">
+        <option value="1">Nam</option>
+        <option value="2">Nu</option>
+    </select>
+    <br/>
+    <input type="text" onchange="myChange(this);" />
+    <br/>
+    <input type="text" onkeydown="myKeyDown(event);" onkeypress="myKeyPress(this);" onkeyup="myKeyup(this);" />
+
+    <div onmousemove="myMouseMove();" onmouseup="myMouseUp(event);" onmousedown="myMouseDown(event);" style="width: 300px; height:300px; background-color:yellow;"></div>
+
+    <img src="images/icon1.png" onmouseover="zoomIn(this);" onmouseout="zoomOut(this);" />
+
+    <!-- <script type="text/javascript" src="js/js-03.js"></script> -->
+    <script type="text/javascript">
+        // code js in here
+        function zoomIn(obj) {
+            obj.width = 500;
+            obj.height = 500;
+        }
+
+        function zoomOut(obj) {
+            obj.width = 100;
+            obj.height = 100;
+        }
+
+        function myMouseMove(){
+            console.log('chuot dang di chuyen');
+        }
+        function myMouseUp(e) {
+            console.log(e);
+            console.log('chuot da dc nha ra');
+        }
+        function myMouseDown(e) {
+            console.log(e);
+            console.log('chuot da dc bam');
+        }
+
+        function myKeyDown(myEvent) {
+            console.log('su kien keydown da xay ra');
+            console.log(myEvent);
+        }
+        function myKeyPress() {
+            console.log('su kien keypress da xay ra');
+        }
+        function myKeyup(obj) {
+            console.log('su kien keyup da xay ra');
+            console.log(obj);
+        }
+
+        function myChange(obj) {
+            let val = obj.value;
+            console.log(val);
+        }
+
+        function chooseGender(obj) {
+            //console.log(obj);
+            let val = obj.value;
+            if(val === '1'){
+                console.log('Ban chon nam')
+            } else if(val === '2') {
+                console.log('Ban chon nu')
+            } else {
+                console.log('ban chua chon gioi tinh');
+            }
+        }
+
+        function clickMe() {
+            alert(" hi you ");
+        }
+        function myBlur() {
+            console.log('su kien blur vua dc kich hoat');
+        }
+        function myFocus() {
+            console.log('su kien focus vua dc kich hoat');
+        }
+    </script>
+</body>
+</html>

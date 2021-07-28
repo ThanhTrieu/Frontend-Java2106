@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM - JS Event</title>
+    <style>
+        .btn {
+            padding: '10px';
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button id="click" class="btn"> click me </button>
+    <br/><br/>
+    <button id="click2" class="btn"> click me2 </button>
+    <script type="text/javascript">
+        // dung DOM element truy cap vao phan tu html
+        // truy cap theo ID
+        let btn = document.getElementById('click');
+        //console.log(btn);
+
+        // truy cap theo class
+        let btn2 = document.getElementsByClassName('btn');
+        //console.log(btn2[0]);
+
+        // truy cap theo ten the
+        let btn3 = document.getElementsByTagName('button');
+        //console.log(btn3[1]);
+
+        // truy cap theo selector css
+        let btn4 = document.querySelectorAll('.btn');
+        //console.log(btn4[1]);
+
+        //let btn4 = document.querySelector('.btn');
+        // tra ve ngay thanh phan dau tien co nhan selector css do
+        //console.log(btn4);
+
+        // bat su kien cho doi thuong HTML thong qua DOM JS
+        // dung DOM event hay DOM listener;
+        btn4[0].onclick = function(){
+            alert('hi you');
+        }
+
+        btn4[1].addEventListener('click', function(){
+            alert('good bye');
+        });
+
+    </script>
+</body>
+</html>
