@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS BOM - DOM</title>
+</head>
+<body>
+    <button type="button"> go back js-04.html</button>
+    <script type="text/javascript">
+        let btn = document.getElementsByTagName('button');
+        btn[0].onclick = function(){
+            // quay ve lai dung cai trang truoc do
+            history.back();
+        }
+    </script>
+</body>
+</html>

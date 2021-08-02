@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Event  - 04 </title>
+</head>
+<body>
+    <h1 class="title"> Learning JS - 04</h1>
+    <img src="images/icon1.png" />
+    <br/><br/>
+
+    <div id="content"></div>
+    <br/> <br/>
+
+    <button class="btn"> Click </button>
+    <button class="btn"> Click me 2</button>
+    <button class="btn"> Click me 3</button>
+    <button class="btn"> Click me 4</button>
+    <button class="btn"> Dong cua so tab lai</button>
+    <button class="btn"> Tai lai trang </button>
+    <button class="btn"> go to facebook.com </button>
+    <button class="btn"> screen </button>
+    <button class="btn"> forward js-04-v1.html </button>
+    <br/>
+    <a href="js-04-v1.html"> go to js-04-v1.html</a>
+
+
+    <script type="text/javascript">
+        // tiep tuc lam viec voi DOM JS
+        let btn = document.getElementsByClassName('btn');
+
+        btn[8].onclick = function(){
+            // di toi trang do
+            history.forward();
+        }
+
+        btn[7].onclick = function() {
+            let w = screen.width;
+            let h = screen.height;
+            console.log(w, h);
+        }
+
+        btn[6].onclick = function(){
+            // tuong duong nhu su dung the a html
+            window.location.href = 'https://www.facebook.com';
+        }
+
+        btn[5].onclick = function(){
+            // reload page
+            window.location.reload(true);
+        }
+
+        btn[4].onclick = function(){
+            window.close();
+        }
+
+        btn[3].onclick = function() {
+            // lay ra kich thuoc khung trinh duyet dang hien thi tren man hinh
+            let wb = window.innerWidth; // window chinh la 1 BOM
+            let hb = window.innerHeight;
+            console.log(`chieu rong la: ${wb} - chieu cao la: ${hb}`);
+
+            // mo cua so trinh duyet
+            window.open('https://vnexpress.net', 'vnexpress', 'width=300px,height=300px');
+        }
+
+        btn[2].addEventListener('click', function(){
+            let div = document.getElementById('content');
+            div.style.width = '300px';
+            div.style.height = '300px';
+            div.style.border = '1px solid solid red';
+            div.style.backgroundColor = 'yellow';
+        });
+
+        btn[0].addEventListener('click', function(){
+            // lay noi dung the h1 co class title
+            let tagH1 = document.getElementsByTagName('h1');
+            // innerHTML : lay noi dung cua the html
+            let content = tagH1[0].innerHTML;
+            // alert(content);
+
+            // truy cap vao anh
+            let img = document.getElementsByTagName('img');
+            // thay doi duong dan cua anh
+            img[0].src = 'images/icon2.png';
+            img[0].width = 300;
+            img[0].height = 300;
+
+            let div = document.getElementById('content');
+            // lam mat het hieu ung css
+            div.setAttribute('style', '');
+        });
+
+        // click vao button click me thay doi noi dung the h1 co class title title
+        btn[1].onclick = function() {
+            document.getElementsByClassName('title')[0].innerHTML = 'Hoc Java co ban';
+            document.getElementsByTagName('img')[0].setAttribute('src', 'images/icon1.png');
+        }
+    </script>
+</body>
+</html>

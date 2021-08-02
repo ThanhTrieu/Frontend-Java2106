@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .container{
+            width: 350px;
+            margin: 0 auto;
+        }
+        .form-login {
+            width: 100%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .form-group {
+            width: 100%;
+            padding: 5px 0px;
+        }
+        .form-control {
+            width: 100%;
+            display: block;
+            border: 1px solid #ccc;
+            height: 28px;
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- validation data form login -->
+    <div class="container">
+        <form class="form-login">
+            <div class="form-group">
+                <label>username</label>
+                <input id="username" type="text" class="form-control" />
+                <p id="error-user"></p>
+            </div>
+            <div class="form-group">
+                <label>password</label>
+                <input id="password" type="password" class="form-control" />
+                <p id="error-pass"></p>
+            </div>
+            <button id="btnLogin" type="button" class="btn"> Login</button>
+        </form>
+    </div>
+    <script type="text/javascript">
+        let btnLogin = document.getElementById("btnLogin");
+        btnLogin.addEventListener("click",function(){
+            // kiem tra xem nguoi dung nhap du lieu vao input chua ???
+            let user = document.getElementById("username");
+            let pass = document.getElementById("password");
+            let errUser = document.getElementById("error-user");
+            let errPass = document.getElementById("error-pass");
+            
+            // lay du lieu
+            let valUser = user.value;
+            let valPass = pass.value;
+            let chkUser = null;
+            let chkPass = null;
+
+            if(valUser === '' || valUser.trim().length === 0) {
+                // chua nhap username
+                errUser.innerHTML = 'Vui long nhap username';
+                errUser.style.color = 'red';
+                user.style.border = '1px solid red';
+                chkUser = false;
+            } else {
+                // da nhap username
+                // an bo het loi
+                errUser.innerHTML = '';
+                errUser.setAttribute('style', '');
+                user.setAttribute('style', '');
+                chkUser = true;
+            }
+
+            if(valPass === '' || valPass.trim().length === 0){
+                errPass.innerHTML = 'Vui long nhap password';
+                errPass.style.color = 'red';
+                pass.style.border = '1px solid red';
+                chkPass = false;
+            } else {
+                errPass.innerHTML = '';
+                errPass.setAttribute('style', '');
+                pass.setAttribute('style', '');
+                chkPass = true;
+            }
+
+            if(chkPass && chkUser){
+                // cho submit form
+            }
+        });
+    </script>
+</body>
+</html>

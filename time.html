@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - event</title>
+</head>
+<body>
+    <h1 id="showTime"> 0 </h1>
+    <button id="start" type="button"> Start </button>
+    <button id="stop" type="button"> Stop </button>
+
+    <br/><br/>
+    <hr/>
+    <form>
+        <label> moi nhap nam </label>
+        <input type="text" id="txtYear" />
+        <p id="error-year"></p>
+        <br/>
+        <button type="button" id="btnCheckYear"> Kiem tra nam nhuan DL </button>
+        <h2 id="result"></h2>
+    </form>
+
+    <script type="text/javascript">
+        let count = 0;
+        let startTime = null;
+
+        document.getElementById('btnCheckYear').addEventListener('click',function(){
+            let inputYear = document.getElementById('txtYear');
+            let errorYear = document.getElementById('error-year');
+            let result = document.getElementById('result');
+
+            let valYear = inputYear.value;
+            // kiem tra xem thuc su no co phai la so hay ko ???
+            if(!isNaN(valYear) && valYear.trim().length !== 0){
+                // nhap so
+                // xoa het thong bao loi
+                errorYear.setAttribute('style', '');
+                inputYear.setAttribute('style', '');
+                errorYear.innerHTML = '';
+
+                // di tinh toan kiem tra xem co phai nam nhuan DL ko ?
+                valYear = parseInt(valYear);
+                // nam do chia het cho 400 ==> nam nhuan DL
+                // nam do chia het cho 4 va khong chia het cho 100 ==> nam nhuan DL
+                // con lai khong phai la nam nhuan DL
+                if(valYear % 400 === 0){
+                    result.innerHTML = `Nam ${valYear} la nam nhuan DL`;
+                } else if(valYear % 4 === 0 && valYear % 100 !== 0) {
+                    result.innerHTML = `Nam ${valYear} la nam nhuan DL`;
+                } else {
+                    result.innerHTML = `Nam ${valYear} khong phai la nam nhuan DL`;
+                }
+
+            } else {
+                // nhap ko phai so
+                errorYear.innerHTML = 'Vui long nhap so';
+                errorYear.style.color = 'red';
+                inputYear.style.border = '1px solid red';
+                result.innerHTML = ''; // khong thong bao ket qua gi het
+            }
+        });
+
+        document.getElementById("start").onclick = function(){
+            let time = document.getElementById("showTime");
+            // setInterval: thuc thi lap lai 1 hanh dong nao do theo 1 chu ky thoi gian cho truoc
+            startTime =  setInterval(function(){
+                // cu sau 1s thuc thi lai cong viec gi day
+                count += 1;
+                time.innerHTML = count;
+            }, 1000);
+        }
+
+        document.getElementById('stop').onclick = function(){
+            clearInterval(startTime);
+        }
+    </script>
+</body>
+</html>
