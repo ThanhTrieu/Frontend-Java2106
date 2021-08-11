@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Funny game</title>
+	<!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3">
+				<h1 class="text-center"> Do vui !</h1>
+				<div class="row" id="question-1">
+					<div class="col-12 col-sm-12 col-md-12">
+						<h5> 1/ Day la con gi ?</h5>
+						<img src="https://xuonggomsuviet.vn/wp-content/uploads/2019/12/y-nghia-hinh-tuong-con-ho-trong-phong-thuy-3.jpg" alt="" class="img-fluid w-100">
+					</div>
+					<div class="col-12 col-sm-12 col-md-12">
+						<label>
+							<input class="answer-1" type="radio" name="1" value="0">
+							<span>Con Meo</span>
+						</label>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12">
+						<label>
+							<input class="answer-1" type="radio" name="1" value="1">
+							<span>Con Ho</span>
+						</label>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12">
+						<label>
+							<input class="answer-1" type="radio" name="1" value="0">
+							<span>Con Su Tu</span>
+						</label>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12">
+						<label>
+							<input class="answer-1" type="radio" name="1" value="0">
+							<span>Con Bao</span>
+						</label>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12">
+						<button onclick="confirmAnswer(this, '1')" type="button" class="btn btn-primary">Kiem Tra</button>
+					</div>
+				</div>
+				<hr>
+				<div class="row my-5" id="question-2" style="display: none;">
+					<div class="col-12 col-sm-12 col-md-12">
+						<h5> 2/ Day la con gi ?</h5>
+						<img src="https://cms.lichngaytot.com/medias/standard/2015/6/26/Bi-an-giac-mo-ve-loai-bao-hinh-anh.jpg" alt="" class="img-fluid w-100">
+					</div>
+					<div class="col-12 col-sm-12 col-md-12">
+						<label>
+							<input class="answer-2" type="radio" name="1" value="1">
+							<span>Con Bao</span>
+						</label>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12">
+						<label>
+							<input class="answer-2" type="radio" name="1" value="0">
+							<span>Con Ha Ma</span>
+						</label>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12">
+						<label>
+							<input class="answer-2" type="radio" name="1" value="0">
+							<span>Con Huou cao co</span>
+						</label>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12">
+						<label>
+							<input class="answer-2" type="radio" name="1" value="0">
+							<span>Con Ngua van</span>
+						</label>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12">
+						<button onclick="confirmAnswer(this, '2')" type="button" class="btn btn-primary">Kiem Tra</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function confirmAnswer(obj, id) {
+			// lay ra tat cau tra loi tuong ung cua cau hoi
+			let listAnswers = document.getElementsByClassName(`answer-${id}`);
+			let flagAnswer = false;
+			for( let i = 0; i < listAnswers.length; i++) {
+				if(listAnswers[i].checked) {
+					let answer = listAnswers[i].value;
+					if(answer === '1') {
+						flagAnswer = true;
+						break;
+					}
+				}
+			}
+			if(flagAnswer) {
+				alert(' Dan ap chinh xac');
+				obj.style.display = 'none';
+				let nextId = parseInt(id);
+				nextId += 1;
+				if(document.getElementById(`question-${nextId}`)){
+					document.getElementById(`question-${nextId}`).style.display = 'block';
+				}
+			} else {
+				alert('Be chon sai dap an roi !');
+			}
+		}
+	</script>
+</body>
+</html>

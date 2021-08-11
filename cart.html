@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <div class="warper">
+        <header class="header">
+            <h1>Thong tin gio hang</h1>
+        </header>
+        <table width="70%" border="1" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Ten san pham</th>
+                    <th>Anh san pham</th>
+                    <th>So luong</th>
+                    <th>Don gia</th>
+                    <th>Tien</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Iphone 8 plus</td>
+                    <td>
+                        <img width="30%" height="30%" src="images/iphone-8-plus.jpg" alt="" />
+                    </td>
+                    <td>
+                        <input class="qty" type="number" value="2" />
+                    </td>
+                    <td class="price">8600000</td>
+                    <td class="money">17200000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Iphone X</td>
+                    <td>
+                        <img width="30%" height="30%" src="images/iphone-x-64gb.png" alt="" />
+                    </td>
+                    <td>
+                        <input class="qty" type="number" value="1" />
+                    </td>
+                    <td class="price">15000000</td>
+                    <td class="money">15000000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Iphone 12</td>
+                    <td>
+                        <img width="30%" height="30%" src="images/iphone-12-violet.jpg" alt="" />
+                    </td>
+                    <td>
+                        <input class="qty" type="number" value="3" />
+                    </td>
+                    <td class="price">20000000</td>
+                    <td class="money">60000000</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">Tong tien thanh toan</td>
+                    <td class="totalMoney">92200000</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        // xu ly code JS - JQ o day
+        $(function(){
+            // ham khoi tao
+            // bat su kien nguoi thay doi so luong mua hang trong gio hang
+            $('.qty').change(function(){
+                let self = $(this); // su dung lai duoc chinh doi tuong dang thao tac(the input)
+                // lay ra so luong nguoi dung thay doi ???
+                let qty = self.val().trim();
+                let sumMoney = 0;
+
+                if(!isNaN(qty) && qty.length > 0) {
+                    qty = parseInt(qty); // ep ve so nguyen
+                    // so luong mua nho nhat phai la 1 va cho max 10
+                    qty = (qty > 0 && qty <= 10) ? qty : 1;
+                    // lay duoc don gia tuong ung cua san pham thay doi so luong mua
+                    let price = self.parent().next().text().trim();
+                    price = parseFloat(price);
+                    // tinh lai tien
+                    let money = qty*price;
+                    // cap nhat lai vao td hien thi tien
+                    self.parent().next().next().text(money);
+
+                    // tinh lai tong tien
+                    $('table tbody tr td.money').each(function(){
+                        sumMoney += parseFloat($(this).text().trim());
+                    });
+                    // cap nhat hien thi tong tien
+                    $('.totalMoney').text(sumMoney);
+                } else {
+                    alert("So luong mua phai la so nguyen");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

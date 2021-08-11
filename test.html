@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Question game</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<style type="text/css">
+		.bg-question{
+			background-image: url('images/question.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			min-height: 720px;
+		}
+		.question {
+			display: none;
+		}
+		.animals:hover, .animals:active{
+			cursor: pointer;
+			border: 2px solid red;
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fluid bg-question">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-lx-6 offset-xl-3">
+
+					<h1 class="text-center my-3 text-primary">Câu hỏi vui !</h1>
+					<h3 class="text-center mb-3 text-primary time">0</h3>
+					
+					<div class="row bg-white border p-3 question">
+						<h3 class="text-secondary mb-3">1/ Đâu là con voi ?</h3>
+						<div class="row">
+							<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<img src="images/voi.jpg" class="img-fluid w-100 h-100 animals yes">
+							</div>
+							<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<img src="images/ho.jpg" class="img-fluid w-100 h-100 animals">
+							</div>
+						</div>
+						<div class="row mt-3">
+							<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<img src="images/sutu.jpeg" class="img-fluid w-100 h-100 animals">
+							</div>
+							<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<img src="images/bao.jpg" class="img-fluid w-100 h-100 animals">
+							</div>
+						</div>
+					</div>
+
+					<div class="row bg-white border p-3 question">
+						<h3 class="text-secondary mb-3">2/ Đâu là con hổ ?</h3>
+						<div class="row">
+							<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<img src="images/voi.jpg" class="img-fluid w-100 h-100 animals">
+							</div>
+							<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<img src="images/ho.jpg" class="img-fluid w-100 h-100 animals yes">
+							</div>
+						</div>
+						<div class="row mt-3">
+							<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<img src="images/sutu.jpeg" class="img-fluid w-100 h-100 animals">
+							</div>
+							<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<img src="images/bao.jpg" class="img-fluid w-100 h-100 animals">
+							</div>
+						</div>
+					</div>
+
+					<div class="row bg-white border p-3 question last-question">
+						<h3 class="text-secondary mb-3">3/ Đâu là con báo ?</h3>
+						<div class="row">
+							<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<img src="images/voi.jpg" class="img-fluid w-100 h-100 animals">
+							</div>
+							<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<img src="images/ho.jpg" class="img-fluid w-100 h-100 animals">
+							</div>
+						</div>
+						<div class="row mt-3">
+							<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<img src="images/sutu.jpeg" class="img-fluid w-100 h-100 animals">
+							</div>
+							<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+								<img src="images/bao.jpg" class="img-fluid w-100 h-100 animals yes">
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// hien thi cau hoi dau tien
+			$('.question:first').slideDown(1500);
+			let countClick = 0;
+			let time = 15;
+			let countTime;
+
+			function handleCountTime() {
+				countTime = setInterval(function(){
+					time -= 1;
+					//hien thi thoi gian
+					$('h3.time').text(time);
+					if(time == 0){
+						// dung dem thoi gian
+						clearInterval(countTime);
+						alert('Hết thời gian suy nghĩ');
+						// lam moi lai 
+						//window.location.reload(true);
+					}
+				},1000);
+			}
+
+			handleCountTime();
+
+			// xu ly chon dap an
+			$('.animals').click(function() {
+				let self = $(this);
+				// kiem tra xem buc anh dang chon co chua class yes ko?
+				if(self.hasClass('yes')){
+					countClick = 0;
+					// dung dem thoi gian;
+					clearInterval(countTime);
+					// cau tra loi dung
+					alert('Câu trả lời chính xác');
+					
+					if(self.parent().parent().parent().hasClass('last-question')) {
+						// cau hoi cuoi cung ko next nua
+						clearInterval(countTime);
+						alert('Ban da hoan thanh bai test');
+					} else {
+						// an cau hoi vua tra loi xong
+						self.parent().parent().parent().slideUp('fast');
+						// next sang câu hỏi tiếp theo
+						self.parent().parent().parent().next().slideDown(1500);
+
+						// xu ly reset lai time
+						time = 15;
+						handleCountTime();
+					}
+				} else {
+					countClick +=1;
+					if (countClick >= 2) {
+						alert('Bạn đã thua cuộc');
+						// lam moi lai
+						window.location.reload(true);
+					} else {
+						// cau tra loi sai
+						alert('Câu trả lời không đúng - hãy chọn lại đáp án');
+					}
+				}
+			});
+		});
+	</script>
+</body>
+</html>

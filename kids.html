@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do vui danh cho tre em </title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1>Do vui danh cho tre em</h1>
+        </header>
+        <main class="content">
+            <div class="question_1 question">
+                <h3> 1/ Day la con vat nao ?</h3>
+                <img src="images/con-ho.jpg" width="50%" height="50%" alt=""/>
+                <br/><br/>
+                <div>
+                    <input class="answer_1" id="q_1_1" type="radio" name="q_1" />
+                    <label for="q_1_1"> Con cho </label>
+                </div>
+                <div>
+                    <input class="answer_1" id="q_1_2" type="radio" name="q_1" />
+                    <label for="q_1_2"> Con trau</label>
+                </div>
+                <div>
+                    <input class="answer_1 correct" id="q_1_3" type="radio" name="q_1" />
+                    <label for="q_1_3">Con ho</label>
+                </div>
+                <div>
+                    <input class="answer_1" id="q_1_4" type="radio" name="q_1" />
+                    <label for="q_1_4"> Con ga</label>
+                </div>
+                <button class="btn_answer" id="1"> kiem tra</button>
+            </div>
+
+            <div class="question_2 question last_question">
+                <h3> 2/ Do vat nay ten la gi ?</h3>
+                <img src="images/but-chi.jpg" width="50%" height="50%" alt=""/>
+                <br/><br/>
+                <div>
+                    <input class="answer_2" id="q_2_1" type="radio" name="q_2" />
+                    <label for="q_2_1"> Qua bong </label>
+                </div>
+                <div>
+                    <input class="answer_2 correct" id="q_2_2" type="radio" name="q_2" />
+                    <label for="q_2_2"> But chi</label>
+                </div>
+                <div>
+                    <input class="answer_2" id="q_2_3" type="radio" name="q_2" />
+                    <label for="q_2_3">Cai ban hoc</label>
+                </div>
+                <div>
+                    <input class="answer_2" id="q_2_4" type="radio" name="q_2" />
+                    <label for="q_2_4"> Bong den dien</label>
+                </div>
+                <button class="btn_answer" id="2"> kiem tra</button>
+            </div>
+        </main>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            // an het cac cau hoi va chi hien thi cau hoi dau tien
+            $('div.question').hide();
+            $('main.content div.question').eq(0).show();
+            let count = 0;
+
+            // khi kiem tra dap an
+            $('button.btn_answer').click(function() {
+                // phai check xem da chon dap an chua
+                // chon dap an roi - kiem tra dung hay sai
+                // chua chon dap an - thong bao loi len
+                let self = $(this);
+                let idQuestion = self.attr('id');
+                let flagAnswer = false;
+    
+                $('.answer_'+idQuestion).each(function(index, item){
+                    if($(item).is(':checked')){
+                        if($(item).hasClass('correct')){
+                            flagAnswer = true;  
+                        }
+                    }
+                });
+
+                if(flagAnswer){
+                    alert('Be chon dap an dung roi !');
+                    // an nut kiem tra cua chinh cau hoi do
+                    // hien thi cau hoi tiep theo
+                    self.hide();
+                    let id = parseInt(idQuestion) + 1;
+                    $('.question_'+id).show();
+
+                    // khoa cau tra loi vua tra loi tra loi dung
+                    $('.answer_'+idQuestion).attr('disabled', true);
+
+                    if(self.parent().hasClass('last_question')){
+                        alert('Be da hoan thanh bai kiem tra');
+                    }
+
+                } else {
+                    count += 1;
+                    alert('Dap an cua be chua chinh xac');
+                    if(count === 2) {
+                        alert('Be tra loi sai nhieu qua 2 lan roi, be khong di thi nua');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
